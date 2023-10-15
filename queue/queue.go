@@ -5,7 +5,7 @@ type Node struct {
 	Next  *Node
 }
 
-func NewNode(v any) *Node {
+func newNode(v any) *Node {
 	n := Node{v, nil}
 	return &n
 }
@@ -22,7 +22,7 @@ func New() *Queue {
 }
 
 func (q *Queue) Enqueue(v any) {
-	n := NewNode(v)
+	n := newNode(v)
 	if q.head == nil {
 		q.head = n
 	}

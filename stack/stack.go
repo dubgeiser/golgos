@@ -5,7 +5,7 @@ type Node struct {
 	Next  *Node
 }
 
-func NewNode(v any) *Node {
+func newNode(v any) *Node {
 	n := Node{v, nil}
 	return &n
 }
@@ -21,7 +21,7 @@ func New() *Stack {
 }
 
 func (s *Stack) Push(v any) {
-	n := NewNode(v)
+	n := newNode(v)
 	t := s.head
 	s.head = n
 	s.head.Next = t
