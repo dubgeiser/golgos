@@ -1,18 +1,12 @@
 package queue
 
-type Node struct {
-	Value any
-	Next  *Node
-}
-
-func newNode(v any) *Node {
-	n := Node{v, nil}
-	return &n
-}
+import (
+	node "github.com/dubgeiser/golgos/singlelinkedlist/node"
+)
 
 type Queue struct {
-	head   *Node
-	tail   *Node
+	head   *node.Node
+	tail   *node.Node
 	length int
 }
 
@@ -22,7 +16,7 @@ func New() *Queue {
 }
 
 func (q *Queue) Enqueue(v any) {
-	n := newNode(v)
+	n := node.New(v)
 	if q.head == nil {
 		q.head = n
 	}

@@ -1,18 +1,12 @@
 package stack
 
-type Node struct {
-	Value any
-	Next  *Node
-}
-
-func newNode(v any) *Node {
-	n := Node{v, nil}
-	return &n
-}
+import (
+	node "github.com/dubgeiser/golgos/singlelinkedlist/node"
+)
 
 type Stack struct {
 	length int
-	head   *Node
+	head   *node.Node
 }
 
 func New() *Stack {
@@ -21,7 +15,7 @@ func New() *Stack {
 }
 
 func (s *Stack) Push(v any) {
-	n := newNode(v)
+	n := node.New(v)
 	t := s.head
 	s.head = n
 	s.head.Next = t
